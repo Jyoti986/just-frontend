@@ -1,6 +1,6 @@
 import "./styles/App.css";
 import "../node_modules/bootstrap/dist/css/bootstrap.css";
-import "../node_modules/bootstrap/dist/js/bootstrap";
+import "bootstrap";
 
 function App() {
   return (
