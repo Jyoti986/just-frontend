@@ -13,7 +13,7 @@ const Navbar = ()=>{
                     <h2>Logo</h2>
                 </div>
                 <div className="search_bar">
-                    <input type="search_text" name="" id="" placeholder="Enter search item"/>
+                    <input className="search_text" type="text" name="" id="" placeholder="Enter search item"/>
                     <a className="search_btn" href="#">
                         {element}
                     </a>
