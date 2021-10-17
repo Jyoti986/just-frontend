@@ -1,9 +1,10 @@
 import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faSearch } from '@fortawesome/free-solid-svg-icons'
+import { faSearch , faPlus } from '@fortawesome/free-solid-svg-icons'
 import "./Navbar.css"
 
-const element = <FontAwesomeIcon icon={faSearch} />
+const search = <FontAwesomeIcon icon={faSearch} />
+const add = <FontAwesomeIcon icon={faPlus} />
 
 const Navbar = ()=>{
     return (
@@ -14,12 +15,14 @@ const Navbar = ()=>{
                 </div>
                 <div className="search_bar">
                     <input className="search_text" type="text" name="" id="" placeholder="Enter search item"/>
-                    <a className="search_btn" href="#">
-                        {element}
+                    <a className="search_btn" href="http://localhost:3000/">
+                        {search}
                     </a>
                 </div>
                 <div className="create">
-                    <button className="create_btn">create</button>
+                    <button className="create_btn">
+                        {add} Create New Post
+                    </button>
                 </div>
                 <div className="message">
                     <ul>
