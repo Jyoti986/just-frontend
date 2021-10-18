@@ -1,12 +1,14 @@
 import "./styles/App.css";
 // import "../node_modules/bootstrap/dist/css/bootstrap.css";
-// import "bootstrap";
-import Index from "./pages/Index/Index"
+// import "../node_modules/bootstrap/dist/js/bootstrap";
+// import Index from "./pages/Index/Index"
+import LoginPage from "./pages/LoginPage/LoginPage";
 
 function App() {
   return (
     <div className="App">
-      <Index></Index>
+      {/* <Index></Index> */}
+      <LoginPage />
     </div>
   );
 }

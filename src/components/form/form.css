@@ -1,0 +1,80 @@
+.form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 50px 0 0 0;
+  color: var(--white-2);
+  text-align: center;
+}
+
+.dull {
+  color: var(--grey-1);
+}
+
+.form-header {
+  padding-bottom: 2rem;
+  font-size: 1.3rem;
+}
+
+.form-main {
+  padding: 2rem;
+}
+
+label {
+  display: block;
+  text-align: left;
+  text-transform: capitalize;
+  margin-bottom: 0.5rem;
+}
+
+input {
+  display: block;
+  width: 15rem;
+  padding: 0.5rem;
+  border: none;
+  outline: none;
+  background: transparent;
+  border-bottom: 10px solid;
+  border-radius: 1rem;
+  border-image-slice: 1;
+  border-width: 2px;
+  border-image-source: linear-gradient(
+    to left,
+    var(--primary),
+    var(--secondary)
+  );
+  color: var(--white-1);
+}
+
+.email,
+.password {
+  padding: 1rem;
+}
+
+.form-footer {
+  padding: 2rem;
+  margin-top: 1rem;
+}
+
+.login-btn {
+  padding: 0.5rem;
+  border-radius: 0.7rem;
+  width: 6rem;
+  border: none;
+  outline: none;
+  background: linear-gradient(150deg, var(--primary), var(--secondary));
+  color: var(--white-2);
+  font-size: 1rem;
+}
+
+.login-btn:hover {
+  transform: scale(1.1);
+  transition: 0.2s ease-in-out;
+}
+
+.register-link {
+  color: var(--white-1);
+  text-decoration: none;
+  padding: 0.5rem;
+}
