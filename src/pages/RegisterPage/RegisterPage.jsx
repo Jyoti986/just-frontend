@@ -8,10 +8,9 @@ const RegisterPage = ()=>{
             <section className="container">
                 <div className="maincontainer">
                     <div className="half left">
-                        {/* <img src="/images/loginSign.jpg" alt="login-bg" className="image" /> */}
+                        <Register />
                     </div>
                     <div className="half right">
-                        <Register />
                     </div>
                 </div>
             </section>
