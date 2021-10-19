@@ -6,7 +6,7 @@ const RegisterPage = ()=>{
     return (
         <>
             <section className="container">
-                <div className="maincontainer">
+                <div className="mainRegisterContainer">
                     <div className="half left">
                         <Register />
                     </div>
