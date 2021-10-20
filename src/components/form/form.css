@@ -17,6 +17,10 @@
   font-size: 1.3rem;
 }
 
+.register-form-header{
+  font-size: 1.3rem;
+}
+
 .form-main {
   padding: 2rem;
 }
@@ -47,14 +51,21 @@ input {
   color: var(--white-1);
 }
 
+.name,
+.mobileNo,
 .email,
-.password {
+.password,
+.confirmPassword{
   padding: 1rem;
 }
 
 .form-footer {
   padding: 2rem;
   margin-top: 1rem;
+}
+
+.register-form-footer{
+  padding: 2rem;
 }
 
 .login-btn {
