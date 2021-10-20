@@ -1,0 +1,37 @@
+.register_bg {
+  background: var(--black-5);
+  font-size: 15px;
+  overflow: hidden;
+  height: 100vh;
+}
+
+.container {
+  margin-top: 1.5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.mainRegisterContainer {
+  width: 70%;
+  background-color: var(--black-1);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 2rem;
+  box-shadow: -5px 6px 7px -3px var(--grey-3);
+}
+
+.mainRegisterContainer .half {
+  flex: 1;
+}
+
+.mainRegisterContainer .right {
+  position: relative;
+  height: 93vh;
+  background-image: url("../../images/loginSign.jpg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  border-top-right-radius: 2rem;
+  border-bottom-right-radius: 2rem;
+}

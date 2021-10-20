@@ -1,18 +1,20 @@
 import React from "react";
-import "./login.css";
+import css from "./login.module.css";
 import Loginform from "../../components/form/login";
 
 const LoginPage = () => {
   return (
     <>
-      <section className="maincontainer">
-        <div className="half left">
-          <img src="/images/loginSign.jpg" alt="login-bg" className="image" />
-        </div>
-        <div className="half right">
-          <Loginform />
-        </div>
-      </section>
+      <div className={css.login_bg}>
+        <section className={css.container}>
+          <section className={css.maincontainer}>
+            <div className={`${css.half} ${css.left}`}></div>
+            <div className={`${css.half} ${css.right}`}>
+              <Loginform />
+            </div>
+          </section>
+        </section>
+      </div>
     </>
   );
 };
