@@ -1,5 +1,14 @@
 import React from "react"
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faTh, faSearch, faPlus, faBell, faPaperPlane, faSignOutAlt } from "@fortawesome/free-solid-svg-icons";
 import css from "./Sidebar.module.css"
+
+const feed = <FontAwesomeIcon icon={faTh}/>
+const explore = <FontAwesomeIcon icon={faSearch} />;
+const addPost = <FontAwesomeIcon icon={faPlus} />;
+const notification = <FontAwesomeIcon icon={faBell}/>
+const message = <FontAwesomeIcon icon = {faPaperPlane}/>
+const logout = <FontAwesomeIcon icon = {faSignOutAlt}/>
 
 const Sidebar = ()=>{
     return (
@@ -29,6 +38,45 @@ const Sidebar = ()=>{
                     <h3>34</h3>
                     <span>Following</span>
                 </div>
+            </div>
+            {/* menu */}
+            <div className={css.menu}>
+                <a href="/" className={css.active}>
+                    <span className={css.icon}>
+                        {feed}
+                    </span>
+                    Feed
+                </a>
+                <a href="/">
+                    <span className={css.icon}>
+                        {explore}
+                    </span>
+                    Explore
+                </a>
+                <a href="/">
+                    <span className={css.icon}>
+                        {addPost}
+                    </span>
+                    Add Post
+                </a>
+                <a href="/">
+                    <span className={css.icon}>
+                        {notification}
+                    </span>
+                    Notification
+                </a>
+                <a href="/">
+                    <span className={css.icon}>
+                        {message}
+                    </span>
+                    Message
+                </a>
+                <a href="/">
+                    <span className={css.icon}>
+                        {logout}
+                    </span>
+                    Log Out
+                </a>
             </div>
         </div>
         </>
