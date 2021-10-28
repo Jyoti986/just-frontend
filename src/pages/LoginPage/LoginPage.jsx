@@ -1,6 +1,6 @@
 import React from "react";
 import css from "./login.module.css";
-import Loginform from "../../components/form/login";
+import Login from "../../components/form/Login";
 
 const LoginPage = () => {
   return (
@@ -10,7 +10,7 @@ const LoginPage = () => {
           <section className={css.maincontainer}>
             <div className={`${css.half} ${css.left}`}></div>
             <div className={`${css.half} ${css.right}`}>
-              <Loginform />
+              <Login />
             </div>
           </section>
         </section>

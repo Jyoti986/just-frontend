@@ -1,7 +1,7 @@
 import React from "react";
 import css from "./form.module.css";
 
-const login = () => {
+const Login = () => {
   const handleLogin = () => {};
   return (
     <>
@@ -30,7 +30,7 @@ const login = () => {
         <footer className={css.form_footer}>
           <div>
             <span className={css.dull}>Dont Have an account?</span>
-            <a href="/" className={css.register_link}>
+            <a href="/register" className={css.register_link}>
               Register
             </a>
           </div>
@@ -40,4 +40,4 @@ const login = () => {
   );
 };
 
-export default login;
+export default Login;

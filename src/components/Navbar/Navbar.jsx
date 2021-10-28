@@ -22,7 +22,7 @@ const Navbar = () => {
             id=""
             placeholder="Enter search item"
           />
-          <a className={css.search_btn} href="http://localhost:3000/">
+          <a className={css.search_btn} href="/">
             {search}
           </a>
         </div>
