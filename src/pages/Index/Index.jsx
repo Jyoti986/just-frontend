@@ -4,6 +4,7 @@ import Sidebar from '../../components/Sidebar/Sidebar';
 
 
 const Index = ()=>{
+
     return (
         <>
         <Navbar></Navbar>

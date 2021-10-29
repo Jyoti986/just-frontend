@@ -26,7 +26,7 @@ const Register = () => {
           <div className={css.mobileNo}>
             <label htmlFor="Mobile No">Mobile No.</label>
             <input
-              type="number"
+              type="text"
               placeholder="Enter Your Mobile No."
               id="mobile"
               name="mobile"
@@ -36,7 +36,7 @@ const Register = () => {
           <div className={css.email}>
             <label htmlFor="Email address">Email Address</label>
             <input
-              type="text"
+              type="email"
               placeholder="email@example.com"
               id="email"
               name="email"

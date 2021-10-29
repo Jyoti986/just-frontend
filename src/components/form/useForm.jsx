@@ -1,11 +1,14 @@
 import { useState } from "react";
 import axios from "axios";
+import { useHistory } from "react-router-dom";
 
 const useForm = () => {
   const [values, setValues] = useState({
     email: "",
     password: "",
   });
+
+  let history = useHistory();
 
   const [rvalues, setRvalues] = useState({
     username: "",
@@ -55,16 +58,21 @@ const useForm = () => {
   const handleLogin = async (e) => {
     e.preventDefault();
     try {
-      const res = await axios.post("http://localhost:5000/api/login", {
+      const res = await axios.post("http://localhost:5000/api/auth/login", {
         email: values.email,
         password: values.password,
       });
 
-      window.localStorage.setItem("authorization", res.data.token);
-      window.localStorage.setItem(
-        "userdata",
-        `${res.data.userID} ${res.data.userName} ${res.data.token}`
-      );
+      console.log(res);
+
+      if(res.data.success) {
+        window.localStorage.setItem("token", res.data.authToken);
+        history.push('/');
+        // window.localStorage.setItem(
+        //   "userdata",
+        //   `${res.data.userID} ${res.data.userName} ${res.data.authToken}`
+        // );
+      }
 
       setValues({
         email: "",
@@ -81,7 +89,7 @@ const useForm = () => {
     //TODO: encrypt pass and confirmPass
     const erpassword = "Encrypt the password";
     try {
-      const res = await axios.post("https://localhost:5000/api/register", {
+      const res = await axios.post("https://localhost:5000/api/auth/register", {
         username: rvalues.username,
         email: rvalues.email,
         mobile: rvalues.mobile,
