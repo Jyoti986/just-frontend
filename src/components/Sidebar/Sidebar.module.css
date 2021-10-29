@@ -3,7 +3,7 @@
     width: 20rem;
     height: 100vh;
     background-color: var(--black-5);
-    padding: 20px;
+    padding: 15px;
     color: white;
 
 }
@@ -21,7 +21,7 @@
     height: 80px;
     width: 80px;
     border-radius: 50%;
-    border: 2px solid red;
+    border: 2px solid var(--primary);
 }
 .profile_img img{
     width: 70px;
@@ -41,32 +41,34 @@
 .about{
     display: flex;
     justify-content: space-between;
-    margin-top: 1rem;
+    margin: 1rem auto 2rem auto;
 }
 .box{
     text-align: center;
 }
 .box h3{
-    font-size: 1rem;
+    font-size: 0.9rem;
     font-weight: 500;
 }
 
 .menu a{
     width: 100%;
-    font-size: 1rem;
+    font-size: 14px;
     color: white;
     display: flex;
     align-items: center;
     line-height: 40px;
+    text-decoration: none;
 }
 
 .menu .icon{
-    margin-right: 1rem;
+    margin: 0.5rem 3rem 0.5rem 2rem;
     font-size: 20px;
 }
 
 .menu a:hover, .menu .active{
-    color: wheat;
+    color: var(--primary);
+    /* color: linear-gradient(150deg, var(--primary), var(--secondary)); */
 }
 
 .menu a:hover::before,
@@ -74,8 +76,8 @@
     content: '';
     position: absolute;
     right: 0;
-    width: 2px;
-    height: 17px;
-    background: wheat;
+    width: 3px;
+    height: 20px;
+    background: linear-gradient(150deg, var(--primary), var(--secondary));
 
 }
