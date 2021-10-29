@@ -111,3 +111,7 @@
     font-weight: 400;
 
 }
+
+.temp{
+    color: var(--white-1);
+}

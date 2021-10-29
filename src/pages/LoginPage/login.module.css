@@ -37,6 +37,16 @@
   border-bottom-left-radius: 2rem;
 }
 
+@media screen and (max-width: 1000px) {
+  .maincontainer {
+    width: 90%;
+  }
+
+  .maincontainer .left {
+    display: none;
+  }
+}
+
 /* .maincontainer {
   width: 70%;
   background-color: var(--black-1);

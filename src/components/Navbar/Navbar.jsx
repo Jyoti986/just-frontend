@@ -22,7 +22,7 @@ const Navbar = () => {
             id=""
             placeholder="Enter search item"
           />
-          <a className={css.search_btn} href="http://localhost:3000/">
+          <a className={css.search_btn} href="/">
             {search}
           </a>
         </div>
@@ -32,10 +32,14 @@ const Navbar = () => {
         <div className={css.message}>
           <ul>
             <li>
-              <Link to="/login">Login</Link>
+              <Link to="/login" className={css.temp}>
+                Login
+              </Link>
             </li>
             <li>
-              <Link to="/register">Register</Link>
+              <Link to="/register" className={css.temp}>
+                Register
+              </Link>
             </li>
           </ul>
         </div>
