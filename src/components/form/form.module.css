@@ -25,14 +25,16 @@
   padding: 2rem;
 }
 
-.form_main label {
+.form_main label,
+.register_form_main label {
   display: block;
   text-align: left;
   text-transform: capitalize;
   margin-bottom: 0.5rem;
 }
 
-.form_main input {
+.form_main input,
+.register_form_main input {
   display: block;
   width: 15rem;
   padding: 0.5rem;
@@ -51,8 +53,11 @@
   color: var(--white-1);
 }
 
+.name,
+.mobileNo,
 .email,
-.password {
+.password,
+.confirmPassword {
   padding: 1rem;
 }
 
@@ -61,7 +66,8 @@
   margin-top: 1rem;
 }
 
-.login_btn {
+.login_btn,
+.register_btn {
   padding: 0.5rem;
   border-radius: 0.7rem;
   width: 6rem;
@@ -72,9 +78,24 @@
   font-size: 1rem;
 }
 
-.login_btn:hover {
+.login_btn:hover,
+.register_btn:hover {
   transform: scale(1.1);
   transition: 0.2s ease-in-out;
+}
+
+.register_link {
+  color: var(--white-1);
+  text-decoration: none;
+  padding: 0.5rem;
+}
+
+.register_form_header {
+  font-size: 1.3rem;
+}
+
+.register_form_footer {
+  padding: 2rem;
 }
 
 .register_link {

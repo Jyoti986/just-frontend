@@ -1,8 +1,10 @@
 import React from "react";
 import css from "./form.module.css";
+import useForm from "./useForm";
 
-const login = () => {
-  const handleLogin = () => {};
+const Login = () => {
+  const { handleChange, handleLogin } = useForm();
+
   return (
     <>
       <form className={css.form}>
@@ -13,14 +15,22 @@ const login = () => {
         <main className={css.form_main}>
           <div className={css.email}>
             <label htmlFor="Email address">Email Address</label>
-            <input type="text" placeholder="email@example.com" />
+            <input
+              type="text"
+              placeholder="email@example.com"
+              onChange={handleChange}
+              id="email"
+              name="email"
+            />
           </div>
           <div className={css.password}>
             <label htmlFor="Password">Password</label>
             <input
               type="password"
-              className={css.pass_ip}
               placeholder="Enter Password"
+              onChange={handleChange}
+              id="password"
+              name="password"
             />
           </div>
           <button className={css.login_btn} onClick={handleLogin}>
@@ -30,7 +40,7 @@ const login = () => {
         <footer className={css.form_footer}>
           <div>
             <span className={css.dull}>Dont Have an account?</span>
-            <a href="/" className={css.register_link}>
+            <a href="/register" className={css.register_link}>
               Register
             </a>
           </div>
@@ -40,4 +50,4 @@ const login = () => {
   );
 };
 
-export default login;
+export default Login;
