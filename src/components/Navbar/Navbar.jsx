@@ -32,10 +32,14 @@ const Navbar = () => {
         <div className={css.message}>
           <ul>
             <li>
-              <Link to="/login">Login</Link>
+              <Link to="/login" className={css.temp}>
+                Login
+              </Link>
             </li>
             <li>
-              <Link to="/register">Register</Link>
+              <Link to="/register" className={css.temp}>
+                Register
+              </Link>
             </li>
           </ul>
         </div>

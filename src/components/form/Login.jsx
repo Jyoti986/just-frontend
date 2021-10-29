@@ -1,8 +1,11 @@
 import React from "react";
 import css from "./form.module.css";
 
+import useForm from "./useForm";
+
 const Login = () => {
-  const handleLogin = () => {};
+  const { handleChange, handleLogin } = useForm();
+
   return (
     <>
       <form className={css.form}>
@@ -13,14 +16,22 @@ const Login = () => {
         <main className={css.form_main}>
           <div className={css.email}>
             <label htmlFor="Email address">Email Address</label>
-            <input type="text" placeholder="email@example.com" />
+            <input
+              type="text"
+              placeholder="email@example.com"
+              onChange={handleChange}
+              id="email"
+              name="email"
+            />
           </div>
           <div className={css.password}>
             <label htmlFor="Password">Password</label>
             <input
               type="password"
-              className={css.pass_ip}
               placeholder="Enter Password"
+              onChange={handleChange}
+              id="password"
+              name="password"
             />
           </div>
           <button className={css.login_btn} onClick={handleLogin}>
