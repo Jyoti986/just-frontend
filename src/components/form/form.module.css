@@ -59,7 +59,7 @@
 .email,
 .password,
 .confirmPassword {
-  padding: 1rem;
+  padding: 0.55rem;
 }
 
 .form_footer {
