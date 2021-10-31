@@ -30,7 +30,7 @@ const Sidebar = () => {
     <>
       <div className={css.sidebar}>
         <div className={css.logo}>
-          <h2>Just</h2>
+          <h1>Just</h1>
         </div>
         {/* profile img  */}
         <div className={css.profile}>
