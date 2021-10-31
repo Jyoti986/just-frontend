@@ -5,8 +5,13 @@
     background-color: var(--black-5);
     padding: 15px;
     color: white;
-
 }
+
+.logo{
+    text-align: left;
+    padding: 0 2rem 2rem;
+}
+
 .profile{
     display: flex;
     flex-direction: column;
@@ -68,7 +73,7 @@
 
 .menu a:hover, .menu .active{
     color: var(--primary);
-    /* color: linear-gradient(150deg, var(--primary), var(--secondary)); */
+    /* color: linear-gradient(150deg, var(--primary), var(--secondary-1)); */
 }
 
 .menu a:hover::before,
@@ -78,6 +83,6 @@
     right: 0;
     width: 3px;
     height: 20px;
-    background: linear-gradient(150deg, var(--primary), var(--secondary));
+    background: linear-gradient(150deg, var(--primary), var(--secondary-1));
 
 }

@@ -1,6 +1,8 @@
 :root {
   --primary: #824dfe;
-  --secondary: #4017e8;
+  --secondary-1: #4017e8;
+  --secondary-2: #fda3fc;
+  --secondary-3: #677ab3;
 
   --black-1: #15161c;
   --black-2: #1e1e2a;
@@ -11,13 +13,10 @@
   --grey-1: #41434f;
   --grey-2: #36394b;
   --grey-3: #3c3f51;
-  --grey-4: #5F5F68;
-  
+  --grey-4: #5f5f68;
+
   --white-1: #e0e0e0;
-  --white-2: #FEFFFF;
-  
-  --secondary-1: #fda3fc;
-  --secondary-2: #677ab3;
+  --white-2: #feffff;
 }
 
 * {
@@ -26,7 +25,7 @@
   box-sizing: border-box;
 }
 
-body{
+body {
   width: 100vw;
   height: 100vh;
 }

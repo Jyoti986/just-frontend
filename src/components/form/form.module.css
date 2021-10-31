@@ -48,7 +48,7 @@
   border-image-source: linear-gradient(
     to left,
     var(--primary),
-    var(--secondary)
+    var(--secondary-1)
   );
   color: var(--white-1);
 }
@@ -73,7 +73,7 @@
   width: 6rem;
   border: none;
   outline: none;
-  background: linear-gradient(150deg, var(--primary), var(--secondary));
+  background: linear-gradient(150deg, var(--primary), var(--secondary-1));
   color: var(--white-2);
   font-size: 1rem;
 }

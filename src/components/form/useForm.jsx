@@ -26,7 +26,7 @@ const useForm = () => {
     password: "",
   });
 
-  const [errors, setErrors] = useState({});
+  // const [errors, setErrors] = useState({});
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -65,9 +65,9 @@ const useForm = () => {
 
       console.log(res);
 
-      if(res.data.success) {
+      if (res.data.success) {
         window.localStorage.setItem("token", res.data.authToken);
-        history.push('/');
+        history.push("/");
         // window.localStorage.setItem(
         //   "userdata",
         //   `${res.data.userID} ${res.data.userName} ${res.data.authToken}`
@@ -96,6 +96,8 @@ const useForm = () => {
         password: erpassword,
         confirmPassword: erpassword,
       });
+      console.log(res);
+      
     } catch (err) {
       console.error(err);
     }
@@ -109,7 +111,7 @@ const useForm = () => {
     values,
     rvalues,
     emailValues,
-    errors,
+    // errors,
     passwordValues,
   };
 };
