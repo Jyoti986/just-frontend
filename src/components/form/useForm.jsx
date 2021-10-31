@@ -116,10 +116,12 @@ const useForm = () => {
 
   const getProfile = async ()=> {
     const token = window.localStorage.getItem("token");
-    const res = await axios.get("http://localhost:5000/api/auth/profile", {
-      headers: {"auth-token": token}
-    });
-    setProfile({username: res.data.user.username, name: res.data.user.name});
+    if(token) {
+      const res = await axios.get("http://localhost:5000/api/auth/profile", {
+        headers: {"auth-token": token}
+      });
+      setProfile({username: res.data.user.username, name: res.data.user.name});
+    }
   }
 
   return {
