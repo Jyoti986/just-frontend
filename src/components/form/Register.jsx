@@ -13,13 +13,23 @@ const Register = () => {
           <h2>Register Now</h2>
         </header>
         <main className={css.register_form_main}>
-          <div className="name">
-            <label htmlFor="Username">Username</label>
+          <div className={css.username}>
+            <label htmlFor="username">Username</label>
+            <input
+              type="text"
+              placeholder="Enter Your Username"
+              id="username"
+              name="username"
+              onChange={handleRegisterChange}
+            />
+          </div>
+          <div className={css.name}>
+            <label htmlFor="name">Name</label>
             <input
               type="text"
               placeholder="Enter Your Name"
-              id="username"
-              name="username"
+              id="name"
+              name="name"
               onChange={handleRegisterChange}
             />
           </div>

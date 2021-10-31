@@ -12,11 +12,14 @@ const useForm = () => {
 
   const [rvalues, setRvalues] = useState({
     username: "",
+    name: "",
     mobile: "",
     email: "",
     password: "",
     confirmPassword: "",
   });
+
+  const [profile,setProfile] = useState({username: "", name: ""});
 
   const [emailValues, setEmailValues] = useState({
     email: "",
@@ -50,7 +53,7 @@ const useForm = () => {
     const { name, value } = e.target;
 
     setRvalues({
-      ...values,
+      ...rvalues,
       [name]: value,
     });
   };
@@ -66,6 +69,7 @@ const useForm = () => {
       console.log(res);
 
       if (res.data.success) {
+        console.log(res.data.authToken);
         window.localStorage.setItem("token", res.data.authToken);
         history.push("/");
         // window.localStorage.setItem(
@@ -79,7 +83,7 @@ const useForm = () => {
         password: "",
       });
     } catch (err) {
-      console.error(err);
+      window.localStorage.setItem("error",err);
     }
   };
 
@@ -87,21 +91,36 @@ const useForm = () => {
     e.preventDefault();
     //TODO: validation for password and confiirmPassword
     //TODO: encrypt pass and confirmPass
-    const erpassword = "Encrypt the password";
+    // const erpassword = "Encrypt the password";
     try {
-      const res = await axios.post("https://localhost:5000/api/auth/register", {
+      const res = await axios.post("http://localhost:5000/api/auth/register", {
         username: rvalues.username,
+        name: rvalues.name,
         email: rvalues.email,
-        mobile: rvalues.mobile,
-        password: erpassword,
-        confirmPassword: erpassword,
+        phone: rvalues.mobile,
+        password: rvalues.password
       });
+
       console.log(res);
       
+      if(res.data.success) {
+        console.log(res.data.authToken);
+        window.localStorage.setItem("token", res.data.authToken);
+        history.push('/')
+      }
+      
     } catch (err) {
-      console.error(err);
+      window.localStorage.setItem("error",err);
     }
   };
+
+  const getProfile = async ()=> {
+    const token = window.localStorage.getItem("token");
+    const res = await axios.get("http://localhost:5000/api/auth/profile", {
+      headers: {"auth-token": token}
+    });
+    setProfile({username: res.data.user.username, name: res.data.user.name});
+  }
 
   return {
     handleChange,
@@ -113,6 +132,8 @@ const useForm = () => {
     emailValues,
     // errors,
     passwordValues,
+    getProfile,
+    profile
   };
 };
 

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faTh,
@@ -9,6 +9,7 @@ import {
   faSignOutAlt,
 } from "@fortawesome/free-solid-svg-icons";
 import css from "./Sidebar.module.css";
+import useForm from "../form/useForm";
 
 const feed = <FontAwesomeIcon icon={faTh} />;
 const explore = <FontAwesomeIcon icon={faSearch} />;
@@ -18,6 +19,13 @@ const message = <FontAwesomeIcon icon={faPaperPlane} />;
 const logout = <FontAwesomeIcon icon={faSignOutAlt} />;
 
 const Sidebar = () => {
+
+    const { getProfile, profile } = useForm();
+
+    useEffect(()=> {
+        getProfile();
+    },[getProfile])
+
   return (
     <>
       <div className={css.sidebar}>
@@ -30,9 +38,9 @@ const Sidebar = () => {
             <img src="../../images/loginSign.jpg" alt="" />
           </div>
           <div className={css.name}>
-            <h1>Jon Doe</h1>
+            <h1>{profile.name}</h1>
           </div>
-          <span>@johnnyboy</span>
+          <span>@{profile.username}</span>
         </div>
         {/* about */}
         <div className={css.about}>
