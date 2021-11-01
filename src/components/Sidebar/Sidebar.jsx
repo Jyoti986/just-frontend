@@ -1,4 +1,5 @@
 import React, { useEffect } from "react";
+import { useHistory } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faTh,
@@ -20,11 +21,17 @@ const logout = <FontAwesomeIcon icon={faSignOutAlt} />;
 
 const Sidebar = () => {
 
-    const { getProfile, profile } = useForm();
-
-    useEffect(()=> {
-        getProfile();
-    },[getProfile])
+  const history = useHistory();
+  const { getProfile, profile } = useForm();
+  
+  useEffect(()=> {
+    getProfile();
+  },[getProfile])
+  
+  const onLogout = ()=> {
+    localStorage.removeItem("token");
+    history.push('/login');
+  }
 
   return (
     <>
@@ -79,7 +86,7 @@ const Sidebar = () => {
             <span className={css.icon}>{message}</span>
             Message
           </a>
-          <a href="/">
+          <a href="/" onClick={onLogout}>
             <span className={css.icon}>{logout}</span>
             Log Out
           </a>
