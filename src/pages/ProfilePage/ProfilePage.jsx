@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useCallback, useEffect, useState } from 'react';
 import useForm from '../../components/form/useForm';
 import Sidebar from '../../components/Sidebar/Sidebar';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -21,15 +21,9 @@ const ProfilePage = () => {
     const { getProfile, profile } = useForm();
     const [userposts, setUserPosts] = useState([]);
 
-    useEffect(() => {
-        getProfile();
-        getPost();
-        // eslint-disable-next-line
-    }, []);
+    // console.log(profile);
 
-    // console.log(profile.posts);
-
-    const getPost = async (url) => {
+    const getPost = useCallback(async () => {
         const userpost = await fetch("http://localhost:5000/api/posts/fetchallposts", {
             method: 'GET',
             headers: {
@@ -41,7 +35,15 @@ const ProfilePage = () => {
 
         // console.log(json.posts);
         setUserPosts(json.posts);
-    }
+    })
+
+    useEffect(() => {
+        getProfile();
+        getPost();
+        // eslint-disable-next-line
+    }, [getProfile, getPost]);
+
+    // console.log(profile.posts);
 
     return (
         <div className={styles.profile_container}>
@@ -89,11 +91,10 @@ const ProfilePage = () => {
                     <div className={styles.post_container}>
                         {profile.posts.length !== 0 && userposts.map((post) => {
                             return (
-                                <>
-                                    <div className={styles.card}>
-                                        <img src={post.image} alt="" />
-                                    </div>
-                                </>)
+                                <div className={styles.card} key={post._id}>
+                                    <img src={post.image} alt="" />
+                                </div>
+                            )
                         })}
                     </div>
                     {profile.posts.length === 0 && <div className={styles.no_post_container}>

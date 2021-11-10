@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useCallback, useState } from "react";
 import axios from "axios";
 import { useHistory } from "react-router-dom";
 
@@ -123,7 +123,7 @@ const useForm = () => {
     }
   };
 
-  const getProfile = async () => {
+  const getProfile = useCallback(async () => {
     const token = window.localStorage.getItem("token");
     if (token) {
       const res = await axios.get("http://localhost:5000/api/auth/profile", {
@@ -137,11 +137,11 @@ const useForm = () => {
         followers: res.data.user.followers,
         following: res.data.user.following,
         posts: res.data.user.posts,
-        profilePic: res.data.user.about.profilePic,
+        profilePic: res.data.user.about.profilepic,
         bio: res.data.user.about.bio
       });
     }
-  };
+  });
 
   return {
     handleChange,
