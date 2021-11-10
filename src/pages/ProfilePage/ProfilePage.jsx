@@ -35,7 +35,7 @@ const ProfilePage = () => {
 
         // console.log(json.posts);
         setUserPosts(json.posts);
-    })
+    }, [setUserPosts])
 
     useEffect(() => {
         getProfile();

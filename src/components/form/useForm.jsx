@@ -141,7 +141,7 @@ const useForm = () => {
         bio: res.data.user.about.bio
       });
     }
-  });
+  }, [setProfile]);
 
   return {
     handleChange,
