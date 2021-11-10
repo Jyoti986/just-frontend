@@ -4,6 +4,7 @@ import Sidebar from '../../components/Sidebar/Sidebar';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
     faTh,
+    faEdit,
     faCamera
 } from "@fortawesome/free-solid-svg-icons";
 
@@ -13,6 +14,7 @@ import styles from './profilePage.module.css';
 
 const feed = <FontAwesomeIcon icon={faTh} />;
 const camera = <FontAwesomeIcon icon={faCamera} />;
+const editIcon = <FontAwesomeIcon icon={faEdit} />;
 
 const ProfilePage = () => {
 
@@ -73,6 +75,11 @@ const ProfilePage = () => {
                         <h3>{profile.following.length}</h3>
                         <span>Following</span>
                     </div>
+                </div>
+
+                {/* Edit Profile */}
+                <div className={styles.editProfile}>
+                    <button>Edit Profile</button>
                 </div>
 
                 {/* Posts */}

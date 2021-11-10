@@ -20,6 +20,7 @@
     margin-top: 1.4rem;
     margin-bottom: 3vh;
 }
+
 .profile_img {
     display: flex;
     align-items: center;
@@ -28,7 +29,13 @@
     width: 130px;
     border-radius: 50%;
     border: 2px solid var(--primary);
+    cursor: pointer;
 }
+
+.profile_img:hover {
+    opacity: 0.85;
+}
+
 .profile_img img {
     width: 120px;
     height: 120px;
@@ -113,4 +120,21 @@
     border-radius: 50%;
     background: transparent;
     margin-bottom: 3vh;
+}
+
+.editProfile {
+    margin-top: 3vh;
+}
+
+.editProfile button {
+    width: 70%;
+    font-size: 1.3rem;
+    padding: 0.5vw 1vw;
+    border: 0.12vw solid grey;
+    border-radius: 0.5vw;
+    cursor: pointer;
+}
+
+.editProfile button:hover {
+    background-color: rgb(218, 218, 218);
 }
