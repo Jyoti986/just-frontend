@@ -86,3 +86,10 @@
     background: linear-gradient(150deg, var(--primary), var(--secondary-1));
 
 }
+
+.links {
+    display: flex;
+    justify-content: space-around;
+    margin-left: 4vh;
+    /* background-color: rgb(223, 37, 12); */
+}
