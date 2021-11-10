@@ -1,10 +1,11 @@
 import React, { useEffect } from "react";
-import { useHistory } from "react-router-dom";
+import { Link, useHistory, useLocation} from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faTh,
   faSearch,
   faPlus,
+  faUser,
   faBell,
   faPaperPlane,
   faSignOutAlt,
@@ -12,9 +13,11 @@ import {
 import css from "./Sidebar.module.css";
 import useForm from "../form/useForm";
 
+import no_dp from '../../images/no_dp.jpg';
 const feed = <FontAwesomeIcon icon={faTh} />;
 const explore = <FontAwesomeIcon icon={faSearch} />;
 const addPost = <FontAwesomeIcon icon={faPlus} />;
+const profileIcon = <FontAwesomeIcon icon={faUser} />;
 const notification = <FontAwesomeIcon icon={faBell} />;
 const message = <FontAwesomeIcon icon={faPaperPlane} />;
 const logout = <FontAwesomeIcon icon={faSignOutAlt} />;
@@ -22,13 +25,16 @@ const logout = <FontAwesomeIcon icon={faSignOutAlt} />;
 const Sidebar = () => {
 
   const history = useHistory();
+  const location = useLocation();
   const { getProfile, profile } = useForm();
-  
-  useEffect(()=> {
+
+  const token = localStorage.getItem("token");
+
+  useEffect(() => {
     getProfile();
-  },[getProfile])
-  
-  const onLogout = ()=> {
+  }, [getProfile])
+
+  const onLogout = () => {
     localStorage.removeItem("token");
     history.push('/login');
   }
@@ -42,7 +48,7 @@ const Sidebar = () => {
         {/* profile img  */}
         <div className={css.profile}>
           <div className={css.profile_img}>
-            <img src="../../images/loginSign.jpg" alt="" />
+            {profile.profilePic !== undefined ? <img src={profile.profilePic} alt="" /> : <img src={no_dp} alt="" />}
           </div>
           <div className={css.name}>
             <h1>{profile.name}</h1>
@@ -52,50 +58,56 @@ const Sidebar = () => {
         {/* about */}
         <div className={css.about}>
           <div className={css.box}>
-            <h3>69</h3>
+            <h3>{profile.posts.length}</h3>
             <span>Posts</span>
           </div>
           <div className={css.box}>
-            <h3>420</h3>
+            <h3>{profile.followers.length}</h3>
             <span>Followers</span>
           </div>
           <div className={css.box}>
-            <h3>404</h3>
+            <h3>{profile.following.length}</h3>
             <span>Following</span>
           </div>
         </div>
         {/* menu */}
         <div className={css.menu}>
-          <a href="/" className={css.active}>
+          <Link to="/" className={ location.pathname === "/" ? css.active : ""}>
             <span className={css.icon}>{feed}</span>
             Feed
-          </a>
-          <a href="/">
+          </Link>
+          {/* <Link to="/">
             <span className={css.icon}>{explore}</span>
             Explore
-          </a>
-          <a href="/">
+          </Link> */}
+          <Link to='/profile' className={ location.pathname === "/profile" || location.pathname === "/editProfile" ? css.active : ""}>
+            <span className={css.icon}>{profileIcon}</span>
+            Profile
+          </Link>
+          <Link to='/addpost' className={ location.pathname === "/addpost" ? css.active : ""}>
             <span className={css.icon}>{addPost}</span>
             Add Post
-          </a>
-          <a href="/">
+          </Link>
+          <Link to="/">
             <span className={css.icon}>{notification}</span>
             Notification
-          </a>
-          <a href="/">
+          </Link>
+          <Link to="/">
             <span className={css.icon}>{message}</span>
             Message
-          </a>
-          <a href="/" onClick={onLogout}>
+          </Link>
+          <a href="" onClick={onLogout}>
             <span className={css.icon}>{logout}</span>
             Log Out
           </a>
-          <a href="/login">
-            Log In
-          </a>
-          <a href="/register">
-            SignIn
-          </a>
+          {/* {!token && <div className={css.links}>
+            <Link to="/login">
+              Log In
+            </Link>
+            <Link to="/register">
+              Register
+            </Link>
+          </div>} */}
         </div>
       </div>
     </>

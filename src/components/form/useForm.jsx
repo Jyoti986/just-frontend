@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useCallback, useState } from "react";
 import axios from "axios";
 import { useHistory } from "react-router-dom";
 
@@ -19,7 +19,17 @@ const useForm = () => {
     confirmPassword: "",
   });
 
-  const [profile,setProfile] = useState({username: "", name: ""});
+  const [profile, setProfile] = useState({
+    username: "",
+    name: "",
+    email: "",
+    phone: 0,
+    followers: [],
+    following: [],
+    posts: [],
+    profilePic: "",
+    bio: "",
+  });
 
   const [emailValues, setEmailValues] = useState({
     email: "",
@@ -66,7 +76,7 @@ const useForm = () => {
         password: values.password,
       });
 
-      console.log(res);
+      // console.log(res);
 
       if (res.data.success) {
         console.log(res.data.authToken);
@@ -83,7 +93,7 @@ const useForm = () => {
         password: "",
       });
     } catch (err) {
-      window.localStorage.setItem("error",err);
+      window.localStorage.setItem("error", err);
     }
   };
 
@@ -98,31 +108,40 @@ const useForm = () => {
         name: rvalues.name,
         email: rvalues.email,
         phone: rvalues.mobile,
-        password: rvalues.password
+        password: rvalues.password,
       });
 
-      console.log(res);
-      
-      if(res.data.success) {
-        console.log(res.data.authToken);
+      // console.log(res);
+
+      if (res.data.success) {
+        // console.log(res.data.authToken);
         window.localStorage.setItem("token", res.data.authToken);
-        history.push('/')
+        history.push("/");
       }
-      
     } catch (err) {
-      window.localStorage.setItem("error",err);
+      window.localStorage.setItem("error", err);
     }
   };
 
-  const getProfile = async ()=> {
+  const getProfile = useCallback(async () => {
     const token = window.localStorage.getItem("token");
-    if(token) {
+    if (token) {
       const res = await axios.get("http://localhost:5000/api/auth/profile", {
-        headers: {"auth-token": token}
+        headers: { "auth-token": token },
       });
-      setProfile({username: res.data.user.username, name: res.data.user.name});
+      setProfile({
+        username: res.data.user.username,
+        name: res.data.user.name,
+        email: res.data.user.email,
+        phone: res.data.user.phone,
+        followers: res.data.user.followers,
+        following: res.data.user.following,
+        posts: res.data.user.posts,
+        profilePic: res.data.user.about.profilepic,
+        bio: res.data.user.about.bio
+      });
     }
-  }
+  }, [setProfile]);
 
   return {
     handleChange,
@@ -135,7 +154,7 @@ const useForm = () => {
     // errors,
     passwordValues,
     getProfile,
-    profile
+    profile,
   };
 };
 
