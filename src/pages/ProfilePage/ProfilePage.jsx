@@ -1,4 +1,5 @@
 import React, { useCallback, useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
 import useForm from '../../components/form/useForm';
 import Sidebar from '../../components/Sidebar/Sidebar';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -81,7 +82,7 @@ const ProfilePage = () => {
 
                 {/* Edit Profile */}
                 <div className={styles.editProfile}>
-                    <button>Edit Profile</button>
+                    <Link to='/editProfile'><button>Edit Profile</button></Link>
                 </div>
 
                 {/* Posts */}

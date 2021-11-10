@@ -76,7 +76,7 @@ const useForm = () => {
         password: values.password,
       });
 
-      console.log(res);
+      // console.log(res);
 
       if (res.data.success) {
         console.log(res.data.authToken);
@@ -111,10 +111,10 @@ const useForm = () => {
         password: rvalues.password,
       });
 
-      console.log(res);
+      // console.log(res);
 
       if (res.data.success) {
-        console.log(res.data.authToken);
+        // console.log(res.data.authToken);
         window.localStorage.setItem("token", res.data.authToken);
         history.push("/");
       }

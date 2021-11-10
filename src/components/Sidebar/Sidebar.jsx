@@ -80,11 +80,11 @@ const Sidebar = () => {
             <span className={css.icon}>{explore}</span>
             Explore
           </Link> */}
-          <Link to='/profile' className={ location.pathname === "/profile" ? css.active : ""}>
+          <Link to='/profile' className={ location.pathname === "/profile" || location.pathname === "/editProfile" ? css.active : ""}>
             <span className={css.icon}>{profileIcon}</span>
             Profile
           </Link>
-          <Link to="/addpost">
+          <Link to='/addpost' className={ location.pathname === "/addpost" ? css.active : ""}>
             <span className={css.icon}>{addPost}</span>
             Add Post
           </Link>

@@ -1,0 +1,4 @@
+.editProfile_container {
+    min-height: 100vh;
+    background-color: var(--black-2);
+}
