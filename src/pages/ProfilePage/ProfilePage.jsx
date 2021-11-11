@@ -1,4 +1,4 @@
-import React, { useCallback, useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import useForm from '../../components/form/useForm';
 import Sidebar from '../../components/Sidebar/Sidebar';
@@ -19,29 +19,13 @@ const editIcon = <FontAwesomeIcon icon={faEdit} />;
 
 const ProfilePage = () => {
 
-    const { getProfile, profile } = useForm();
-    const [userposts, setUserPosts] = useState([]);
+    const { getProfile, profile , getPost, userposts } = useForm();
 
     // console.log(profile);
-
-    const getPost = useCallback(async () => {
-        const userpost = await fetch("http://localhost:5000/api/posts/fetchallposts", {
-            method: 'GET',
-            headers: {
-                "auth-token": localStorage.getItem("token")
-            }
-        })
-
-        const json = await userpost.json();
-
-        // console.log(json.posts);
-        setUserPosts(json.posts);
-    }, [setUserPosts])
 
     useEffect(() => {
         getProfile();
         getPost();
-        // eslint-disable-next-line
     }, [getProfile, getPost]);
 
     // console.log(profile.posts);
