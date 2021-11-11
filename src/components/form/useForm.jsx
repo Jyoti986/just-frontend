@@ -10,6 +10,8 @@ const useForm = () => {
 
   let history = useHistory();
 
+  const [userposts, setUserPosts] = useState([]);
+
   const [rvalues, setRvalues] = useState({
     username: "",
     name: "",
@@ -143,6 +145,23 @@ const useForm = () => {
     }
   }, [setProfile]);
 
+  const getPost = useCallback(async () => {
+    const userpost = await fetch("http://localhost:5000/api/posts/fetchallposts", {
+        method: 'GET',
+        headers: {
+            "auth-token": localStorage.getItem("token")
+        }
+    })
+
+    const json = await userpost.json();
+
+    const {posts} = json;
+
+    // console.log(json.posts);
+    console.log("post");
+    setUserPosts(posts);
+  }, [setUserPosts])
+
   return {
     handleChange,
     handleRegisterChange,
@@ -155,6 +174,8 @@ const useForm = () => {
     passwordValues,
     getProfile,
     profile,
+    getPost,
+    userposts
   };
 };
 
