@@ -1,0 +1,47 @@
+.backdrop {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    z-index: 1000;
+    background-color: rgba(0, 0, 0, 0.521);
+}
+
+.modal {
+    position: absolute;
+    left: 35%;
+    top: 20%;
+    z-index: 1000;
+    min-height: 60vh;
+    min-width: 40vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: rebeccapurple;
+}
+
+/* .picDisplay {
+    height: 20vh;
+    width: 20vw;
+}
+
+.picDisplay img {
+    height: 20vh;
+    width: 20vw;
+} */
+
+.modal form {
+    margin-top: 5vh;
+    display: flex;
+    flex-direction: column;
+    padding: 1vw;
+    background-color: red;
+}
+
+.modal form input {
+    outline: none;
+    padding: 0.3vw 1vw;
+    font-size: 1.2rem;
+}
