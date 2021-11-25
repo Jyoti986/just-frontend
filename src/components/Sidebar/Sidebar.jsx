@@ -22,7 +22,7 @@ const notification = <FontAwesomeIcon icon={faBell} />;
 const message = <FontAwesomeIcon icon={faPaperPlane} />;
 const logout = <FontAwesomeIcon icon={faSignOutAlt} />;
 
-const Sidebar = () => {
+const Sidebar = ({setShow}) => {
 
   const history = useHistory();
   const location = useLocation();
@@ -84,7 +84,7 @@ const Sidebar = () => {
             <span className={css.icon}>{profileIcon}</span>
             Profile
           </Link>
-          <Link to='/addpost' className={ location.pathname === "/addpost" ? css.active : ""}>
+          <Link to={location.pathname} onClick={()=> setShow(true)}>
             <span className={css.icon}>{addPost}</span>
             Add Post
           </Link>
