@@ -148,20 +148,36 @@ const useForm = () => {
 
   const getPost = useCallback(async () => {
     const userpost = await fetch("http://localhost:5000/api/posts/fetchallposts", {
-        method: 'GET',
-        headers: {
-            "auth-token": localStorage.getItem("token")
-        }
+      method: 'GET',
+      headers: {
+        "auth-token": localStorage.getItem("token")
+      }
     })
 
     const json = await userpost.json();
 
-    const {posts} = json;
+    const { posts } = json;
 
     // console.log(json.posts);
     console.log("post");
     setUserPosts(posts);
   }, [setUserPosts])
+
+  const addPost = async (url, cap = "") => {
+    const token = window.localStorage.getItem("token");
+    const postConfig = {
+      "auth-token": localStorage.getItem("token")
+    }
+    const postBody = {
+      image: url,
+      caption: cap
+    }
+    const res = await axios.post("http://localhost:5000/api/posts/addpost", postBody, {
+      headers: postConfig
+    });
+    console.log(res);
+    
+  }
 
   return {
     handleChange,
@@ -176,7 +192,8 @@ const useForm = () => {
     getProfile,
     profile,
     getPost,
-    userposts
+    userposts,
+    addPost
   };
 };
 
