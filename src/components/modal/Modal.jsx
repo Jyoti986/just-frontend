@@ -15,7 +15,7 @@ const Modal = ({ show, setShow }) => {
     const [image, setImage] = useState("")
     const [cap,setCap] = useState("")
     const [url,setUrl] = useState("")
-    const { profile, getProfile } = useForm();
+    const { profile, getProfile, addPost } = useForm();
     const imageRef = useRef();
 
     useEffect(() => {
@@ -51,8 +51,10 @@ const Modal = ({ show, setShow }) => {
         .then(res=>res.json())
         .then(data=>{
             setUrl(data.url)
-            console.log(data.url)
+            // console.log(data.url)
+            addPost(data.url,cap);
             setShow(false)
+            history.push("/profile");
         })
         .catch(err=>{
             console.log(err)
@@ -82,7 +84,7 @@ const Modal = ({ show, setShow }) => {
 
     return reactDom.createPortal(
         <>
-            <div className={styles.backdrop} onClick={() => setShow(false)}></div>
+            <div className={styles.backdrop}></div>
             <div className={styles.modal}>
                 <div className={styles.wrapper}>
                     <div className={styles.image} id="image">
@@ -108,8 +110,9 @@ const Modal = ({ show, setShow }) => {
                 <input type="file" name="post" className={styles.default_btn} id="upload_file" onChange={getImagePreview} ref={imageRef} />
                 {/* <button className={styles.custom_btn} hidden>Choose a Pic</button> */}
                     {/* {console.log(imageRef.current.value)} */}
-                <input type="text" className={styles.caption} placeholder="Enter Caption" onChange={(e)=>{setCap(e.target.value)}}/>
+                <input type="text" className={styles.caption} placeholder="Enter Caption" value={cap} onChange={(e)=>{setCap(e.target.value)}}/>
                 <button className={styles.upload_btn} onClick={()=>{postDetails()}}>Upload</button>
+                <button className={styles.upload_btn} onClick={()=> setShow(false)}>Cancel</button>
                 
             </div>
         </>,
