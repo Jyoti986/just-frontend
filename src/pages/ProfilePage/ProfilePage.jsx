@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import useForm from '../../components/form/useForm';
 import Sidebar from '../../components/Sidebar/Sidebar';
@@ -18,6 +18,8 @@ const camera = <FontAwesomeIcon icon={faCamera} />;
 const editIcon = <FontAwesomeIcon icon={faEdit} />;
 
 const ProfilePage = () => {
+    
+    const [isProfile, setIsProfile] = useState(true);
 
     const { getProfile, profile , getPost, userposts } = useForm();
 
@@ -33,7 +35,7 @@ const ProfilePage = () => {
     return (
         <div className={styles.profile_container}>
             <div>
-                <Sidebar />
+                <Sidebar isProfile={isProfile} />
             </div>
             <div className={styles.profile_data}>
 
