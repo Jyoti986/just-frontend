@@ -78,7 +78,6 @@ const useForm = () => {
         password: values.password,
       });
 
-
       // console.log(res);
 
       if (res.data.success) {
@@ -141,18 +140,21 @@ const useForm = () => {
         following: res.data.user.following,
         posts: res.data.user.posts,
         profilePic: res.data.user.about.profilepic,
-        bio: res.data.user.about.bio
+        bio: res.data.user.about.bio,
       });
     }
   }, [setProfile]);
 
   const getPost = useCallback(async () => {
-    const userpost = await fetch("http://localhost:5000/api/posts/fetchallposts", {
-      method: 'GET',
-      headers: {
-        "auth-token": localStorage.getItem("token")
+    const userpost = await fetch(
+      "http://localhost:5000/api/posts/fetchallposts",
+      {
+        method: "GET",
+        headers: {
+          "auth-token": localStorage.getItem("token"),
+        },
       }
-    })
+    );
 
     const json = await userpost.json();
 
@@ -161,23 +163,26 @@ const useForm = () => {
     // console.log(json.posts);
     console.log("post");
     setUserPosts(posts);
-  }, [setUserPosts])
+  }, [setUserPosts]);
 
   const addPost = async (url, cap = "") => {
     const token = window.localStorage.getItem("token");
     const postConfig = {
-      "auth-token": localStorage.getItem("token")
-    }
+      "auth-token": localStorage.getItem("token"),
+    };
     const postBody = {
       image: url,
-      caption: cap
-    }
-    const res = await axios.post("http://localhost:5000/api/posts/addpost", postBody, {
-      headers: postConfig
-    });
+      caption: cap,
+    };
+    const res = await axios.post(
+      "http://localhost:5000/api/posts/addpost",
+      postBody,
+      {
+        headers: postConfig,
+      }
+    );
     console.log(res);
-    
-  }
+  };
 
   return {
     handleChange,
@@ -193,7 +198,7 @@ const useForm = () => {
     profile,
     getPost,
     userposts,
-    addPost
+    addPost,
   };
 };
 
